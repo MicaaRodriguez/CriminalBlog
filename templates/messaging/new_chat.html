@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Iniciar nuevo chat</h2>
+
+<ul class="list-group">
+
+{% for user in users %}
+
+<li class="list-group-item">
+
+<a href="{% url 'chat' user.id %}">
+Hablar con {{ user.username }}
+</a>
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{% url 'inbox' %}" class="btn btn-light mb-3">
+← Volver a chats
+</a>
+
+<div class="card shadow p-3">
+
+<div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+
+<a href="{% url 'user_profile' other_user.id %}">
+
+{% if other_user.profile.avatar %}
+<img src="{{ other_user.profile.avatar.url }}" width="40" height="40" style="border-radius:50%;">
+{% else %}
+<div style="width:40px;height:40px;border-radius:50%;background:#ccc;"></div>
+{% endif %}
+
+</a>
+
+<h5 style="margin:0;">{{ other_user.username }}</h5>
+
+</div>
+
+<hr>
+
+<div style="max-height:400px; overflow-y:auto; margin-bottom:15px;">
+
+{% for message in messages %}
+
+<div style="margin-bottom:10px;">
+
+{% if message.sender == user %}
+
+<div style="text-align:right;">
+<span class="badge bg-primary">
+{{ message.content }}
+</span>
+</div>
+
+{% else %}
+
+<div style="text-align:left;">
+<span class="badge bg-secondary">
+{{ message.content }}
+</span>
+</div>
+
+{% endif %}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<form method="post">
+
+{% csrf_token %}
+
+<div style="display:flex; gap:10px;">
+
+<input type="text" name="content" class="form-control" placeholder="Escribe un mensaje..." required>
+
+<button class="btn btn-primary">
+Enviar
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+{% endblock %}

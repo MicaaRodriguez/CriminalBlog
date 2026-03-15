@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center mb-5">Casos Criminales</h1>
+
+<div class="row">
+
+{% for case in cases %}
+
+<div class="col-md-4 mb-4">
+
+<div class="card h-100 shadow">
+
+<a href="{% url 'case_detail' case.id %}">
+
+{% if case.image %}
+<img src="{{ case.image.url }}" class="card-img-top" style="height:250px; object-fit:cover;">
+{% endif %}
+
+</a>
+
+<div class="card-body d-flex flex-column">
+
+<h5 class="card-title">{{ case.title }}</h5>
+
+<p class="text-muted mb-1">
+<strong>Tipo:</strong> {{ case.get_case_type_display }}
+</p>
+
+<p class="text-muted mb-2">
+<strong>Fecha del hecho:</strong> {{ case.event_date }}
+</p>
+
+<p class="card-text">
+
+<span id="short-{{ case.id }}">
+{{ case.description|truncatewords:20 }}
+</span>
+
+<span id="full-{{ case.id }}" style="display:none;">
+{{ case.description }}
+</span>
+
+</p>
+
+<button onclick="toggleText('{{ case.id }}')" class="btn btn-primary mt-auto">
+Leer más
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+{% empty %}
+
+<div class="col-12">
+<div class="alert alert-warning text-center">
+No hay casos aún.
+</div>
+</div>
+
+{% endfor %}
+
+</div>
+
+
+<script>
+
+function toggleText(id) {
+
+let shortText = document.getElementById("short-" + id)
+let fullText = document.getElementById("full-" + id)
+let button = event.target
+
+if (fullText.style.display === "none") {
+
+shortText.style.display = "none"
+fullText.style.display = "inline"
+button.innerText = "Leer menos"
+
+} else {
+
+shortText.style.display = "inline"
+fullText.style.display = "none"
+button.innerText = "Leer más"
+
+}
+
+}
+
+</script>
+
+{% endblock %}

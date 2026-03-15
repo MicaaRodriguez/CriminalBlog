@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Editar perfil</h2>
+
+<div class="card p-4 shadow" style="max-width:500px;">
+
+<form method="post" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+<h5>Datos de usuario</h5>
+
+{{ user_form.as_p }}
+
+<hr>
+
+<h5>Perfil</h5>
+
+{{ profile_form.as_p }}
+
+<button class="btn btn-primary">
+Guardar cambios
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

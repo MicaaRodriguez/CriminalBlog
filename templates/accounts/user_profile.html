@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="javascript:history.back()" class="btn btn-light mb-3">
+← Volver
+</a>
+
+<h2>Perfil de {{ profile_user.username }}</h2>
+
+<div class="card p-4 shadow" style="max-width:500px;">
+
+{% if profile_user.profile.avatar %}
+<img src="{{ profile_user.profile.avatar.url }}" width="120" class="mb-3" style="border-radius:50%;">
+{% else %}
+<div style="width:120px;height:120px;border-radius:50%;background:#ccc;margin-bottom:15px;"></div>
+{% endif %}
+
+<p><strong>Usuario:</strong> {{ profile_user.username }}</p>
+
+{% if profile_user.profile.bio %}
+<p><strong>Biografía:</strong> {{ profile_user.profile.bio }}</p>
+{% endif %}
+
+</div>
+
+{% endblock %}

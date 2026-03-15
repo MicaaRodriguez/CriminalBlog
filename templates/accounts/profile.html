@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">Perfil</h1>
+
+<div class="card p-4 shadow" style="max-width:500px;">
+
+{% if user.profile.avatar %}
+<img src="{{ user.profile.avatar.url }}" width="120" class="mb-3">
+{% endif %}
+
+<p><strong>Usuario:</strong> {{ user.username }}</p>
+
+<p><strong>Nombre:</strong> {{ user.first_name }}</p>
+
+<p><strong>Apellido:</strong> {{ user.last_name }}</p>
+
+<p><strong>Email:</strong> {{ user.email }}</p>
+
+<p><strong>Biografía:</strong> {{ user.profile.bio }}</p>
+
+<p><strong>Cumpleaños:</strong> {{ user.profile.birthday }}</p>
+
+</div>
+
+<a href="{% url 'edit_profile' %}" class="btn btn-primary mt-3">
+Editar perfil
+</a>
+
+<a href="{% url 'password_change' %}" class="btn btn-warning mt-3">
+Cambiar contraseña
+</a>
+
+{% endblock %}

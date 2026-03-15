@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Chats</h2>
+
+<a href="{% url 'new_chat' %}" class="btn btn-primary mb-3">
+Nuevo chat
+</a>
+
+<div class="list-group">
+
+{% for chat in conversations %}
+
+<a href="{% url 'chat' chat.user.id %}" class="list-group-item list-group-item-action">
+
+<div style="display:flex; align-items:center; justify-content:space-between;">
+
+<div style="display:flex; align-items:center; gap:10px;">
+
+{% if chat.user.profile.avatar %}
+<img src="{{ chat.user.profile.avatar.url }}" width="40" height="40" style="border-radius:50%;">
+{% else %}
+<div style="width:40px;height:40px;border-radius:50%;background:#ccc;"></div>
+{% endif %}
+
+<div>
+
+{% if chat.unread %}
+<span style="color:blue;font-size:18px;">●</span>
+{% endif %}
+
+<strong>{{ chat.user.username }}</strong>
+
+<br>
+
+<small>{{ chat.last_message.content|truncatechars:40 }}</small>
+
+</div>
+
+</div>
+
+</div>
+
+</a>
+
+{% empty %}
+
+<p>No tienes conversaciones todavía.</p>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
