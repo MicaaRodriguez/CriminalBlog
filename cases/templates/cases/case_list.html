@@ -2,7 +2,61 @@
 
 {% block content %}
 
-<h1 class="text-center mb-5">Casos Criminales</h1>
+<h1 class="text-center mb-4">Casos Criminales</h1>
+
+<form method="GET" class="row mb-5">
+
+<div class="col-md-5">
+
+<input
+type="text"
+name="q"
+class="form-control"
+placeholder="Buscar caso por nombre..."
+value="{{ query }}"
+>
+
+</div>
+
+<div class="col-md-4">
+
+<select name="type" class="form-select">
+
+<option value="">Todos los tipos</option>
+
+<option value="serial" {% if selected_type == "serial" %}selected{% endif %}>
+Asesino serial
+</option>
+
+<option value="homicide" {% if selected_type == "homicide" %}selected{% endif %}>
+Homicidio
+</option>
+
+<option value="missing" {% if selected_type == "missing" %}selected{% endif %}>
+Persona desaparecida
+</option>
+
+<option value="fraud" {% if selected_type == "fraud" %}selected{% endif %}>
+Fraude
+</option>
+
+<option value="other" {% if selected_type == "other" %}selected{% endif %}>
+Otro
+</option>
+
+</select>
+
+</div>
+
+<div class="col-md-3">
+
+<button class="btn btn-dark w-100">
+Buscar
+</button>
+
+</div>
+
+</form>
 
 <div class="row">
 
@@ -58,7 +112,7 @@ Leer más
 
 <div class="col-12">
 <div class="alert alert-warning text-center">
-No hay casos aún.
+No hay casos que coincidan con la búsqueda.
 </div>
 </div>
 

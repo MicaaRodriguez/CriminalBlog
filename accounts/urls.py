@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
+from .forms import CustomLoginForm
 
 urlpatterns = [
 
@@ -12,7 +13,10 @@ urlpatterns = [
 
     path(
         "login/",
-        auth_views.LoginView.as_view(template_name="registration/login.html"),
+        auth_views.LoginView.as_view(
+            template_name="registration/login.html",
+            authentication_form=CustomLoginForm
+        ),
         name="login"
     ),
 

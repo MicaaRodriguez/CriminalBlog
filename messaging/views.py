@@ -9,6 +9,8 @@ from .forms import MessageForm
 @login_required
 def inbox(request):
 
+    query = request.GET.get("q", "")
+
     messages = Message.objects.filter(
         Q(sender=request.user) | Q(receiver=request.user)
     ).order_by("-created_at")
@@ -21,6 +23,10 @@ def inbox(request):
             other_user = message.receiver
         else:
             other_user = message.sender
+
+        # filtro de búsqueda
+        if query and query.lower() not in other_user.username.lower():
+            continue
 
         if other_user.id not in conversations:
 
@@ -37,7 +43,8 @@ def inbox(request):
             }
 
     return render(request, "messaging/inbox.html", {
-        "conversations": conversations.values()
+        "conversations": conversations.values(),
+        "query": query
     })
 
 
@@ -51,7 +58,6 @@ def chat(request, user_id):
         Q(sender=other_user, receiver=request.user)
     ).order_by("created_at")
 
-    # marcar mensajes como leídos
     Message.objects.filter(
         sender=other_user,
         receiver=request.user,
@@ -103,8 +109,14 @@ def send_message(request):
 @login_required
 def new_chat(request):
 
+    query = request.GET.get("q", "")
+
     users = User.objects.exclude(id=request.user.id)
 
+    if query:
+        users = users.filter(username__icontains=query)
+
     return render(request, "messaging/new_chat.html", {
-        "users": users
+        "users": users,
+        "query": query
     })

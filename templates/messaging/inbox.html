@@ -8,6 +8,17 @@
 Nuevo chat
 </a>
 
+<form method="GET" class="mb-3">
+
+<input
+type="text"
+name="q"
+placeholder="Buscar usuario..."
+value="{{ query }}"
+class="form-control">
+
+</form>
+
 <div class="list-group">
 
 {% for chat in conversations %}

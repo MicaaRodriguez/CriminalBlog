@@ -8,15 +8,26 @@
 
 <h2>Iniciar sesión</h2>
 
-<form method="post">
+<form method="post" autocomplete="off">
+
 {% csrf_token %}
-{{ form.as_p }}
+
+<p>
+<label>Usuario</label><br>
+{{ form.username }}
+</p>
+
+<p>
+<label>Contraseña</label><br>
+{{ form.password }}
+</p>
 
 <button type="submit">Entrar</button>
 
 </form>
 
 <p>No tienes cuenta?</p>
+
 <a href="{% url 'register' %}">Registrarse</a>
 
 </body>

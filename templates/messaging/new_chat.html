@@ -4,16 +4,41 @@
 
 <h2>Iniciar nuevo chat</h2>
 
+<form method="GET" class="mb-3">
+
+<input
+type="text"
+name="q"
+placeholder="Buscar usuario..."
+value="{{ query }}"
+class="form-control">
+
+</form>
+
 <ul class="list-group">
 
 {% for user in users %}
 
 <li class="list-group-item">
 
-<a href="{% url 'chat' user.id %}">
-Hablar con {{ user.username }}
+<a href="{% url 'chat' user.id %}" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:black;">
+
+{% if user.profile.avatar %}
+<img src="{{ user.profile.avatar.url }}" width="40" height="40" style="border-radius:50%;">
+{% else %}
+<div style="width:40px;height:40px;border-radius:50%;background:#ccc;"></div>
+{% endif %}
+
+<strong>{{ user.username }}</strong>
+
 </a>
 
+</li>
+
+{% empty %}
+
+<li class="list-group-item">
+No se encontraron usuarios.
 </li>
 
 {% endfor %}

@@ -34,13 +34,34 @@
 
 {% for comment in comments %}
 
-<div class="list-group-item">
+<div class="list-group-item d-flex align-items-start">
 
-<strong>{{ comment.user.username }}</strong>
+<a href="{% url 'user_profile' comment.user.id %}">
+
+<img src="{{ comment.user.profile.avatar.url }}" 
+style="width:45px;height:45px;border-radius:50%;object-fit:cover;margin-right:12px;">
+
+</a>
+
+<div>
+
+<strong>
+<a href="{% url 'user_profile' comment.user.id %}" class="text-decoration-none">
+{{ comment.user.username }}
+</a>
+</strong>
+
 <br>
+
 {{ comment.text }}
+
 <br>
-<small class="text-muted">{{ comment.created_at }}</small>
+
+<small class="text-muted">
+{{ comment.created_at|date:"d M Y H:i" }}
+</small>
+
+</div>
 
 </div>
 

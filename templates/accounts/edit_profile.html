@@ -2,30 +2,24 @@
 
 {% block content %}
 
-<h2>Editar perfil</h2>
+<a href="{% url 'profile' %}" class="btn btn-secondary mb-3">
+← Volver al perfil
+</a>
 
-<div class="card p-4 shadow" style="max-width:500px;">
+<h2>Editar perfil</h2>
 
 <form method="post" enctype="multipart/form-data">
 
 {% csrf_token %}
 
-<h5>Datos de usuario</h5>
-
+<h3>Datos de usuario</h3>
 {{ user_form.as_p }}
 
-<hr>
-
-<h5>Perfil</h5>
-
+<h3>Perfil</h3>
 {{ profile_form.as_p }}
 
-<button class="btn btn-primary">
-Guardar cambios
-</button>
+<button type="submit">Guardar cambios</button>
 
 </form>
-
-</div>
 
 {% endblock %}
