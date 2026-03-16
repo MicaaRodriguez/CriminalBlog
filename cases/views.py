@@ -2,12 +2,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Case
 from comments.models import Comment
 
-from django.contrib.auth.forms import UserCreationForm
-
-# NUEVOS IMPORTS PARA CBV
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+
 
 def case_list(request):
 
@@ -54,22 +52,7 @@ def case_detail(request, case_id):
     })
 
 
-def register(request):
-
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-
-    else:
-        form = UserCreationForm()
-
-    return render(request, 'registration/register.html', {'form': form})
-
-
-# LISTAR CASOS (CBV)
+# LISTAR CASOS
 class CaseListView(ListView):
     model = Case
     template_name = "cases/case_list.html"
@@ -79,7 +62,7 @@ class CaseListView(ListView):
 # CREAR CASO
 class CaseCreateView(LoginRequiredMixin, CreateView):
     model = Case
-    fields = ["title", "description", "image", "date"]
+    fields = ["title", "description", "image", "case_type", "event_date"]
     template_name = "cases/case_form.html"
     success_url = reverse_lazy("case_list")
 
@@ -87,7 +70,7 @@ class CaseCreateView(LoginRequiredMixin, CreateView):
 # EDITAR CASO
 class CaseUpdateView(LoginRequiredMixin, UpdateView):
     model = Case
-    fields = ["title", "description", "image", "date"]
+    fields = ["title", "description", "image", "case_type", "event_date"]
     template_name = "cases/case_form.html"
     success_url = reverse_lazy("case_list")
 

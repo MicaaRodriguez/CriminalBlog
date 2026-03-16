@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+from ckeditor.fields import RichTextField
 
 
 class Case(models.Model):
@@ -15,7 +16,8 @@ class Case(models.Model):
 
     title = models.CharField(max_length=200)
 
-    description = models.TextField()
+    # CKEDITOR
+    description = RichTextField()
 
     image = models.ImageField(upload_to="case_images", null=True, blank=True)
 

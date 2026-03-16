@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'cases',
-    'comments',
+    'ckeditor',
+
     'accounts',
+    'cases',
     'messaging',
+    'comments',
 ]
 
 MIDDLEWARE = [
