@@ -33,7 +33,7 @@ python manage.py runserver
 5. Abrir en el navegador
 http://127.0.0.1:8000/
 
-6. Video de la pagina
+## Video de la pagina
 https://drive.google.com/file/d/1dtI_6VuyGxPSm2NbfzJtRyWcoNj1mbDa/view?usp=drive_link
 
 ## Autor
