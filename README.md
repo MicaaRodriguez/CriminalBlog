@@ -12,9 +12,9 @@ CriminalBlog es una aplicación web donde se pueden visualizar casos criminales 
 - Bootstrap
 - SQLite
 
-##*En este repositorio se incluye un video donde se muestra el funcionamiento completo de la aplicación, incluyendo:
-
 ## Funcionalidades
+-En este repositorio se incluye un video donde se muestra el funcionamiento completo de la aplicación, incluyendo:
+
 - Creación de casos
 - Listado de casos
 - Vista detallada de cada caso
