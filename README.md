@@ -4,6 +4,16 @@ Proyecto final desarrollado con Django.
 ## Descripción
 CriminalBlog es una aplicación web donde se pueden visualizar casos criminales y comentar sobre ellos.
 
+## Tecnologías utilizadas
+- Python
+- Django
+- HTML
+- CSS
+- Bootstrap
+- SQLite
+
+En este repositorio se incluye un video donde se muestra el funcionamiento completo de la aplicación, incluyendo:
+
 ## Funcionalidades
 - Creación de casos
 - Listado de casos
@@ -14,14 +24,6 @@ CriminalBlog es una aplicación web donde se pueden visualizar casos criminales 
 - Modificación de usuarios
 - Inicio de sesión
 - Panel de administración
-
-## Tecnologías utilizadas
-- Python
-- Django
-- HTML
-- CSS
-- Bootstrap
-- SQLite
 
 ## Cómo ejecutar el proyecto
 1. Clonar el repositorio
