@@ -5,15 +5,21 @@ Proyecto final desarrollado con Django.
 CriminalBlog es una aplicación web donde se pueden visualizar casos criminales y comentar sobre ellos.
 
 ## Funcionalidades
+- Creación de casos
 - Listado de casos
 - Vista detallada de cada caso
 - Sistema de comentarios
 - Interfaz con Bootstrap
+- Registro de usuarios
+- Modificación de usuarios
+- Inicio de sesión
+- Panel de administración
 
 ## Tecnologías utilizadas
 - Python
 - Django
 - HTML
+- CSS
 - Bootstrap
 - SQLite
 
