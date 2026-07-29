@@ -1,48 +1,84 @@
-# CriminalBlog
-Proyecto final desarrollado con Django.
+# 🕵️ CriminalBlog
 
-## Descripción
-CriminalBlog es una aplicación web donde se pueden visualizar casos criminales y comentar sobre ellos.
+Proyecto final desarrollado con **Python** y **Django**, inspirado en la temática de la criminología. La aplicación permite a los usuarios explorar casos criminales, interactuar mediante comentarios y gestionar contenido a través de un panel de administración.
 
-## Tecnologías utilizadas
-- Python
-- Django
-- HTML
-- CSS
-- Bootstrap
-- SQLite
+---
 
-## Funcionalidades
--En este repositorio se incluye un video donde se muestra el funcionamiento completo de la aplicación, incluyendo:
+## 🚀 Tecnologías utilizadas
 
-- Creación de casos
-- Listado de casos
-- Vista detallada de cada caso
-- Sistema de comentarios
-- Interfaz con Bootstrap
-- Registro de usuarios
-- Modificación de usuarios
-- Inicio de sesión
-- Panel de administración
+- 🐍 Python
+- 🌐 Django
+- 🎨 HTML5
+- 💅 CSS3
+- 🎯 Bootstrap
+- 🗄️ SQLite
 
-## Cómo ejecutar el proyecto
-1. Clonar el repositorio
+---
+
+## ✨ Funcionalidades
+
+- 👤 Registro de usuarios.
+- 🔐 Inicio de sesión y autenticación.
+- 📝 Creación y gestión de casos criminales.
+- 📚 Listado de casos.
+- 🔍 Vista detallada de cada caso.
+- 💬 Sistema de comentarios.
+- ✏️ Modificación de perfiles de usuario.
+- 🛠️ Panel de administración de Django.
+- 📱 Interfaz responsive desarrollada con Bootstrap.
+
+---
+
+## 🎯 Objetivo
+
+Este proyecto fue desarrollado como trabajo final con el objetivo de aplicar conocimientos en desarrollo web utilizando **Django**, implementando autenticación de usuarios, bases de datos, operaciones CRUD y una interfaz intuitiva para ofrecer una experiencia completa al usuario.
+
+---
+
+## ⚙️ Cómo ejecutar el proyecto
+
+### 1️⃣ Clonar el repositorio
+
+```bash
 git clone https://github.com/MicaaRodriguez/CriminalBlog.git
+```
 
-2. Instalar dependencias
+### 2️⃣ Instalar las dependencias
+
+```bash
 pip install django
+```
 
-3. Ejecutar migraciones
+### 3️⃣ Ejecutar las migraciones
+
+```bash
 python manage.py migrate
+```
 
-4. Ejecutar el servidor
+### 4️⃣ Iniciar el servidor
+
+```bash
 python manage.py runserver
+```
 
-5. Abrir en el navegador
+### 5️⃣ Abrir la aplicación
+
+```
 http://127.0.0.1:8000/
+```
 
-## Video de la pagina
-https://drive.google.com/file/d/1dtI_6VuyGxPSm2NbfzJtRyWcoNj1mbDa/view?usp=drive_link
+---
 
-## Autor
-Micaela Rodriguez
+## 🎥 Demostración
+
+Podés ver el funcionamiento completo de la aplicación en el siguiente video:
+
+🔗 https://drive.google.com/file/d/1dtI_6VuyGxPSm2NbfzJtRyWcoNj1mbDa/view?usp=drive_link
+
+---
+
+## 👩‍💻 Autora
+
+**Micaela Rodríguez**
+
+Estudiante de **Tecnólogo en Computación**, apasionada por el desarrollo de software, el Testing QA y la Ciberseguridad.
